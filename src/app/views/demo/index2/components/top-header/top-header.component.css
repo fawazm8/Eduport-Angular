@@ -1,0 +1,37 @@
+.navbar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-item {
+    margin-right: 15px;
+  }
+  
+  .nav-link {
+    color: #000; /* لون النص */
+    text-decoration: none;
+  }
+  
+  .nav-link:hover {
+    color: #007bff; /* لون عند التمرير */
+  }
+  
+  .list-unstyled {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .list-unstyled li {
+    display: inline-block;
+  }
+  
+  .list-unstyled a {
+    color: #000;
+    font-size: 1.2rem;
+  }
+  
+  .list-unstyled a:hover {
+    color: #007bff;
+  }
+  

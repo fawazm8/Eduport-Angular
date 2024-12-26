@@ -12,6 +12,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { AppMenuComponent } from "../../../components/app-menu/app-menu.components";
+import { IntroPlatform } from './models/IntroPlatform.model';
+
 
 @Component({
   selector: 'app-index2',
@@ -34,20 +36,16 @@ import { AppMenuComponent } from "../../../components/app-menu/app-menu.componen
 })
 export class Index2Component implements OnInit {
   showAlert = true;
-  introData: any = {};
+  introData: IntroPlatform[] = []; // تعريف introData كمصفوفة
 
   constructor(private introPlatformService: IntroPlatformService) {}
 
   ngOnInit(): void {
     console.log('Fetching intro data...');
     this.introPlatformService.getIntroPlatforms().subscribe({
-      next: (data) => {
+      next: (data: IntroPlatform[]) => {
         console.log('Data received:', data);
-        if (data && Array.isArray(data) && data.length > 0) {
-          this.introData = data[0];
-        } else {
-          console.warn('No data found or invalid format:', data);
-        }
+        this.introData = data; // حفظ البيانات المستلمة
       },
       error: (err) => {
         console.error('Error fetching intro data:', err);

@@ -1,19 +1,15 @@
-import { Component } from '@angular/core'
-import { LightgalleryModule } from 'lightgallery/angular'
-import lgVideo from 'lightgallery/plugins/video'
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common'; // استيراد CommonModule
+import { IntroPlatform } from '../../models/IntroPlatform.model';
+
 
 @Component({
   selector: 'index2-banner',
   standalone: true,
-  imports: [LightgalleryModule],
   templateUrl: './banner.component.html',
-  styleUrl: './banner.component.scss',
+  styleUrls: ['./banner.component.scss'],
+  imports: [CommonModule], // إضافة CommonModule هنا
 })
 export class BannerComponent {
-  settings = {
-    counter: false,
-    plugins: [lgVideo],
-    selector: 'a',
-    download: false,
-  }
+  @Input() bannerData!: IntroPlatform; // المدخل للبيانات
 }

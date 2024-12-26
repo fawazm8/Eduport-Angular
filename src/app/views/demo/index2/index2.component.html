@@ -9,7 +9,7 @@
 <main>
   <!-- =======================
   Main Banner START -->
-  <index2-banner />
+  <index2-banner *ngIf="introData.length > 0" [bannerData]="introData[0]"></index2-banner>
   <!-- =======================
   Main Banner END -->
 

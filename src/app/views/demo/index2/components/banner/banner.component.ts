@@ -11,5 +11,5 @@ import { IntroPlatform } from '../../models/IntroPlatform.model';
   imports: [CommonModule], // إضافة CommonModule هنا
 })
 export class BannerComponent {
-  @Input() bannerData!: IntroPlatform; // المدخل للبيانات
+  @Input() bannerData: IntroPlatform | null = null;
 }

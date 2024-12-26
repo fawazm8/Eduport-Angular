@@ -44,8 +44,8 @@ export class Index2Component implements OnInit {
     console.log('Fetching intro data...');
     this.introPlatformService.getIntroPlatforms().subscribe({
       next: (data: IntroPlatform[]) => {
-        console.log('Data received:', data);
-        this.introData = data; // حفظ البيانات المستلمة
+        console.log('Data received:', JSON.stringify(data, null, 2)); // طباعة البيانات للتحقق منها
+        this.introData = data;
       },
       error: (err) => {
         console.error('Error fetching intro data:', err);

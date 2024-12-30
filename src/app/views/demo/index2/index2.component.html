@@ -1,10 +1,10 @@
-<index2-top-header />
+<index2-top-header></index2-top-header>
 
 <app-menu
-  navClassName="container"
-  menuClassName="mx-auto"
+  [navClassName]="'container'"
+  [menuClassName]="'mx-auto'"
   [SearchIcon]="true"
-/>
+></app-menu>
 
 <main>
   <!-- =======================
@@ -20,7 +20,7 @@
       <div class="row justify-content-center">
         <div class="col-md-12">
           <div class="tiny-slider">
-            <app-client-slider imageClass="grayscale" />
+            <app-client-slider [imageClass]="'grayscale'"></app-client-slider>
           </div>
         </div>
       </div>
@@ -31,38 +31,38 @@
 
   <!-- =======================
   About START -->
-  <index2-about />
+  <app-about></app-about>
   <!-- =======================
   About END -->
 
   <!-- =======================
   Trending courses START -->
-  <index2-trending-course />
+  <index2-trending-course></index2-trending-course>
   <!-- =======================
   Trending courses END -->
 
   <!-- =======================
   Video divider START -->
-  <index2-video />
+  <index2-video></index2-video>
   <!-- =======================
   Video divider END -->
 
   <!-- =======================
   Event START -->
-  <index2-event />
+  <index2-event></index2-event>
   <!-- =======================
   Event END -->
 
   <!-- =======================
   Newsletter START -->
-  <index2-newsletter />
+  <index2-newsletter></index2-newsletter>
   <!-- =======================
   Newsletter END -->
 </main>
 
-<index2-footer />
+<index2-footer></index2-footer>
 
-@if (showAlert) {
+<ng-container *ngIf="showAlert">
   <ngb-alert
     type="light"
     [dismissible]="false"
@@ -74,15 +74,11 @@
         class="h-50px mb-3"
         alt="cookie"
       />
-
       <p class="mb-0">
         This website stores cookies on your computer. To find out more about the
         cookies we use, see our
-        <a class="text-dark" href="javascript:void(0);"
-          ><u> Privacy Policy</u></a
-        >
+        <a class="text-dark" href="javascript:void(0);"><u> Privacy Policy</u></a>
       </p>
-
       <div class="mt-3">
         <button
           type="button"
@@ -103,4 +99,4 @@
       </div>
     </div>
   </ngb-alert>
-}
+</ng-container>

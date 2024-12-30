@@ -15,13 +15,15 @@ import { AppMenuComponent } from "../../../components/app-menu/app-menu.componen
 import { IntroPlatform } from './models/IntroPlatform.model';
 
 
+
+
 @Component({
   selector: 'app-index2',
   standalone: true,
   imports: [
     TopHeaderComponent,
-    BannerComponent,
-    AboutComponent,
+    BannerComponent, // أضف AboutComponent هنا
+    AboutComponent, // إضافة AboutComponent
     TrendingCourseComponent,
     VideoComponent,
     EventComponent,

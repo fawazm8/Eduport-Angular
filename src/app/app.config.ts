@@ -11,6 +11,9 @@ import { IntroPlatformService } from './core/services/api/intro-platform.service
 import { rootReducer } from './store';
 import { AuthenticationEffects } from './store/authentication/authentication.effects';
 
+import { AboutSiteService } from '@/app/core/services/api/about-site.service'; // تحقق من صحة المسار
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -65,6 +68,8 @@ export const appConfig: ApplicationConfig = {
     provideStore(rootReducer),
     provideEffects(AuthenticationEffects),
     provideHttpClient(withFetch(), withInterceptorsFromDi()),
+    AboutSiteService, // إضافة AboutSiteService هنا
     IntroPlatformService,
+
   ],
 };

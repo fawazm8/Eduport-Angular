@@ -31,7 +31,7 @@
 
   <!-- =======================
   About START -->
-  <app-about></app-about>
+  <app-about *ngIf="aboutData" [aboutData]="aboutData"></app-about>
   <!-- =======================
   About END -->
 

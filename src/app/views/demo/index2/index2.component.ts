@@ -13,6 +13,7 @@ import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { AppMenuComponent } from "../../../components/app-menu/app-menu.components";
 import { IntroPlatform } from './models/IntroPlatform.model';
+import { AboutSite } from '@/app/models/about-site.model';
 
 
 
@@ -37,21 +38,39 @@ import { IntroPlatform } from './models/IntroPlatform.model';
   templateUrl: './index2.component.html',
 })
 export class Index2Component implements OnInit {
-  showAlert = true;
-  introData: IntroPlatform[] = []; // تعريف introData كمصفوفة
+  introData: IntroPlatform[] = [];
+  aboutData!: AboutSite;
+showAlert: any;
 
   constructor(private introPlatformService: IntroPlatformService) {}
 
   ngOnInit(): void {
-    console.log('Fetching intro data...');
     this.introPlatformService.getIntroPlatforms().subscribe({
       next: (data: IntroPlatform[]) => {
-        console.log('Data received:', JSON.stringify(data, null, 2)); // طباعة البيانات للتحقق منها
         this.introData = data;
+
+        // تحويل IntroPlatform إلى AboutSite
+        if (this.introData.length > 0) {
+          this.aboutData = this.mapIntroPlatformToAboutSite(this.introData[0]);
+        }
       },
       error: (err) => {
         console.error('Error fetching intro data:', err);
       },
     });
   }
+
+  // دالة لتحويل IntroPlatform إلى AboutSite
+  private mapIntroPlatformToAboutSite(intro: IntroPlatform): AboutSite {
+    return {
+      id: intro.Id || 0,
+      title: intro.Title || '',
+      subtitle: intro.subtitle || '',
+      description: intro.Description || '',
+      imageUrl: intro.imageUrl || 'default-image.jpg',
+      features: intro.features || [], // مصفوفة فارغة إذا لم يكن الحقل موجودًا
+      createdAt: new Date(), // قيمة افتراضية لحقل createdAt
+    };
+  }
 }
+

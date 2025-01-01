@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AboutSiteService } from '@/app/core/services/api/about-site.service';
 import { AboutSite } from '@/app/models/about-site.model';
@@ -12,6 +12,7 @@ import { AboutSite } from '@/app/models/about-site.model';
 })
 export class AboutComponent implements OnInit {
   aboutSites: AboutSite[] = []; // تخزين البيانات القادمة من API
+  @Input() aboutData!: AboutSite; // المدخل لاستقبال البيانات من المكون الرئيسي
 
   constructor(private aboutSiteService: AboutSiteService) {}
 
@@ -20,6 +21,7 @@ export class AboutComponent implements OnInit {
     this.aboutSiteService.getAllAboutSites().subscribe({
       next: (data) => {
         this.aboutSites = data; // تخزين البيانات في المتغير
+      
         console.log('AboutSites:', data); // طباعة البيانات للتأكد
       },
       error: (err) => {

@@ -1,7 +1,13 @@
 export interface IntroPlatform {
-    Title: string; // عنوان المقدمة
-    Description: string; // وصف المقدمة
-    VideoUrl: string; // رابط الفيديو
-    UserAvatar: string; // رابط صورة المستخدم
-    CallToActionButtons: { Text: string; Url: string }[]; // أزرار الدعوة إلى الإجراء
-  }
+  Id: number;
+  Title: string;
+  subtitle: string;
+  Description: string;
+  imageUrl: string;
+  features?: { // الحقل الذي يسبب المشكلة
+    title: string;
+    description: string;
+    iconUrl?: string;
+    iconColor?: string;
+  }[];
+}

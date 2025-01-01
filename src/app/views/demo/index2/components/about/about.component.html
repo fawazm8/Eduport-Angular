@@ -1,18 +1,31 @@
-<section *ngIf="aboutSites.length > 0">
+<section *ngIf="aboutData">
   <div class="container">
     <div class="row g-4 align-items-center">
       <div class="col-lg-5">
         <h2>
           Find Out More About us,
-          <span class="text-warning">{{ aboutSites[0].title }}</span> insides.
+          <span class="text-warning">{{ aboutData.title }}</span> insides.
         </h2>
-        <img [src]="aboutSites[0].imageUrl || 'assets/images/about/03.jpg'" class="rounded-2" alt="About us image" />
+        <img
+          [src]="aboutData.imageUrl || 'assets/images/about/03.jpg'"
+          class="rounded-2"
+          alt="About us image"
+        />
       </div>
       <div class="col-lg-7">
         <div class="row g-4">
-          <div class="col-sm-6" *ngFor="let feature of aboutSites[0].features; let i = index">
-            <div class="icon-lg rounded-2" [ngClass]="getIconBgClass(i)" [style.color]="feature.iconColor || '#000'">
-              <i [class]="feature.iconUrl || 'fas fa-question-circle fs-5'"></i>
+          <div
+            class="col-sm-6"
+            *ngFor="let feature of aboutData.features; let i = index"
+          >
+            <div
+              class="icon-lg rounded-2"
+              [ngClass]="getIconBgClass(i)"
+              [style.color]="feature.iconColor || '#000'"
+            >
+              <i
+                [class]="feature.iconUrl || 'fas fa-question-circle fs-5'"
+              ></i>
             </div>
             <h5 class="mt-2">{{ feature.title }}</h5>
             <p class="mb-0">{{ feature.description }}</p>

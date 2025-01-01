@@ -17,6 +17,9 @@ export interface PartnerLogo {
   }
   
   export interface IntroPlatform {
+    subtitle: string;
+    imageUrl: string;
+    features: never[];
     Id: number;
     Title: string;
     Description: string;
